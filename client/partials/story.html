@@ -1,0 +1,56 @@
+<!-- NAVBAR -->
+
+<nav class="navbar foncee">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#/">StoryHub</a>
+  </div>
+  <ul class="nav navbar-nav navbar-right links">
+    <li><a href="#/dashboard">Dashboard</a></li>
+  <li role="presentation"><a href="#/new_story">Story</a></li>
+    <li class="dropdown">
+      <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{userObj.fname}} {{userObj.lname}} <span class="caret"></span></a>
+      <ul class="dropdown-menu drop">
+        <li><a href="#/profile/{{userObj._id}}">Profile</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="" ng-click="deleteUser()">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</div><!--/.container-fluid -->
+</nav>
+<!-- END NAV -->
+
+<div class="container">
+<div class="text-center">
+  <h1>{{story.title}}</h1>
+  <!-- {{story.genre}} -->
+  <h4>{{story.genre}}</h4>
+  <p>{{story._user.fname}} {{story._user.lname}}</p>
+  <!-- snippet content/writer/timestamp -->
+  <div id="content">
+    <!-- SNIPPET CONTENT -->
+    <p style="text-align: justify" class="stories">{{story.content}}</p>
+
+  </div>
+
+  <div id="snippets">
+    <p ng-repeat=" sni in snippets" style="text-align: left" class="stories">{{sni.content}} <i class = "pull-right">-{{sni._users.fname}} {{sni._users.lname}}</i></p>
+      </div>
+
+<form ng-submit="addSnippet()">
+  <div class="col-sm-12">
+    <textarea class="form-control " id="exampleTextarea" rows="10" placeholder="Unleash your imagination..." ng-model= 'snippet.content'></textarea>
+  </div>
+<!--   <textarea class="form-control col-sm-5" rows="15" placeholder="Type your part of the story!" ng-model= 'snippet.content'></textarea><br /> -->
+  <button class="btn btn-success" type="submit">Submit</button>
+</form>
+
+</div>
+</div>

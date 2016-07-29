@@ -1,0 +1,55 @@
+<nav class="navbar foncee">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#/">StoryHub</a>
+  </div>
+  <ul class="nav navbar-nav navbar-right links">
+    <li><a href="#/dashboard">Dashboard</a></li>
+  <li role="presentation"><a href="#/new_story">Story</a></li>
+    <li class="dropdown">
+      <a href="" class="dropdown-toggle" data-toggle="dropdown" role="" aria-haspopup="true" aria-expanded="false">{{userObj.fname}} {{userObj.lname}} <span class="caret"></span></a>
+      <ul class="dropdown-menu drop">
+        <li><a href="#/profile/{{userObj._id}}">Profile</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="" ng-click="deleteUser()">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</div><!--/.container-fluid -->
+</nav>
+<!-- END NAV -->
+
+<div class="container">
+  <div class = "row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class = "row">
+        <div class = ".col-sm-12 story_form">
+          <h2>Create a New Story</h2>
+          <form ng-submit = "createStory()">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" id="title" placeholder="New Title" ng-model = "story.title">
+            </div>
+            <div class="form-group">
+              <label for="genre">Genre</label>
+              <input type="text" class="form-control" id="genre" placeholder="Genre" ng-model = "story.genre">
+            </div>
+            <div class="form-group">
+              <label for="exampleTextarea" class="control-label col-sm-1">Story: </label>
+              <div class="form-group">
+                <textarea class="form-control " id="exampleTextarea" rows="10" placeholder="Unleash your imagination..." ng-model="story.content"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success pull-right">Create Story</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

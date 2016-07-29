@@ -1,0 +1,75 @@
+<!-- NAVBAR -->
+
+<nav class="navbar foncee">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#/">StoryHub</a>
+  </div>
+  <ul class="nav navbar-nav navbar-right links">
+    <li><a href="#/dashboard">Dashboard</a></li>
+  <li role="presentation"><a href="#/new_story">Story</a></li>
+    <li class="dropdown">
+      <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{userObj.fname}} {{userObj.lname}} <span class="caret"></span></a>
+      <ul class="dropdown-menu drop">
+        <li><a href="#/profile/{{userObj._id}}">Profile</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="" ng-click="deleteUser()">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</div><!--/.container-fluid -->
+</nav>
+<!-- END NAV -->
+
+<div class="container">
+<div class="row">
+  <div id="left_main" class="col-md-12">
+    <h1 class="text-center">Top Stories</h1>
+    <ul style="list-style-type:none">
+      <!-- REPEAT TOP/RECENT STORIES -->
+      <li ng-repeat="story in stories">
+        <div class="row">
+          <div class="col-sm-12 stories">
+            <a href="#/story/{{story._id}}"><h2 class="text-center">{{story.title}}</h2></a>
+            <div class="col-sm-3">
+              <p>Genre: <i>{{story.genre}}</i></p>
+            </div>
+            <div style="overflow: hidden;  height: 20px;" class="col-sm-12">
+              <p >{{story.content}}</p>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!--   <div id="right_main" class="col-md-4 " style="overflow-y:auto;">
+    <h1 class="text-center">Following</h1>
+    <ul style="list-style-type:none">
+      <li ng-repeat="story in stories">
+        <div class="row well main">
+          <div class="col-sm-4">
+            <img src="http://i.imgur.com/6PZAfHj.jpg" alt="image" height="125" width="100" style="padding-top:20px"/>
+          </div>
+          <div class="col-sm-8 text-center">
+            <h3>{{story.title}}</h3>
+            <p>{story.genre}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div> -->
+</div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+  })
+</script>
